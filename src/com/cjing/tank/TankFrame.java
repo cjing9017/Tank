@@ -9,7 +9,6 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     private Tank myTank = new Tank(200, 200, Dir.DOWN);
-    private static final int SPEED = 10;
 
     public TankFrame() throws HeadlessException {
         setSize(800, 600);
@@ -86,6 +85,12 @@ public class TankFrame extends Frame {
         }
 
         private void setMainTankDir() {
+            if (!bL && !bU && !bR && !bD) {
+                myTank.setMoving(false);
+            } else {
+                myTank.setMoving(true);
+            }
+
             if (bL) {
                 myTank.setDir(Dir.LEFT);
             }
